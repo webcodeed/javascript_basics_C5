@@ -42,44 +42,4 @@ if (skyIsBlue) {
   alert("As expected"); // Executes because 'yes' evaluates to true
 } else {
   alert("Nope!"); // Will not execute because 'yes' is truthy
-
-// Additional Examples and Enhancements
-
-// Nested if statements
-const weather = prompt("How's the weather today? (sunny/rainy)").toLowerCase();
-if (weather === "sunny") {
-  const temperature = Number(prompt("What's the temperature?"));
-  if (temperature > 30) {
-    alert("It's a hot sunny day! Stay hydrated.");
-  } else {
-    alert("It's a pleasant sunny day!");
-  }
-} else if (weather === "rainy") {
-  alert("Don't forget your umbrella!");
-} else {
-  alert("Enjoy your day regardless of the weather!");
 }
-
-// Using switch-case for cleaner code in specific scenarios
-const day = prompt("What day is it today?").toLowerCase();
-switch (day) {
-  case "monday":
-    console.log("Start of the work week!");
-    break;
-  case "friday":
-    console.log("It's almost the weekend!");
-    break;
-  case "saturday":
-  case "sunday":
-    console.log("It's the weekend! Time to relax.");
-    break;
-  default:
-    console.log("It's just another weekday.");
-}
-
-// Using ternary operator for a concise condition
-const ageCheck = Number(prompt("Enter your age:"));
-const licenseMessage = ageCheck >= 18 ? 
-  "You are eligible for a driver's license." : 
-  "You are not eligible for a driver's license.";
-alert(licenseMessage);
