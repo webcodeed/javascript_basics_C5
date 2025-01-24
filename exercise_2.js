@@ -11,9 +11,33 @@ Requirements:
   - Calculate and display the final amount after applying the discount.
 */
 
+const price = +prompt("Input total amount");
+
+if (price < 50) {
+  console.log("There's no discount");
+} else if (price >= 50 && price <= 100) {
+  let total_amount = price - 0.1 * price;
+  console.log(`Total amount: ${total_amount}`);
+} else {
+  let total_amount = price - 0.2 * price;
+  console.log(`Total amount: ${total_amount}`);
+}
+
 // 2. Vowel checker
 // Write a program that checks whether a given character is a vowel (a, e, i, o, u) or a consonant.
+const letter = prompt("Input alphabet letter");
 
+switch (letter) {
+  case "a":
+  case "e":
+  case "i":
+  case "o":
+  case "u":
+    alert("That is a vowel character");
+  default:
+    alert("That is a consonant letter");
+    break;
+}
 
 // 3. BMI Calculator
 /*

@@ -37,9 +37,61 @@ if (score >= 70) {
 }
 
 // Checking a single condition with a truthy value
-const skyIsBlue = 'yes'; // The string 'yes' is a truthy value
+const skyIsBlue = "yes"; // The string 'yes' is a truthy value
 if (skyIsBlue) {
   alert("As expected"); // Executes because 'yes' evaluates to true
 } else {
   alert("Nope!"); // Will not execute because 'yes' is truthy
 }
+
+// SWITCH STATEMENT
+
+const day = "Monday";
+// ===
+switch (day) {
+  case "Monday": // day === "Monday"
+    console.log("Start of the work week!");
+    break;
+  case "Wednesday": // day === "Wednesday"
+    console.log("Midweek already!");
+    break;
+  case "Friday":
+    console.log("Almost the weekend!");
+    break;
+}
+
+let month = "February";
+
+switch (month) {
+  case "January":
+  case "February":
+  case "March":
+    console.log("This is within the first quarter of the business year");
+    break;
+
+  case "April":
+  case "May":
+  case "June":
+    console.log("This is within the second quarter of the business year");
+    break;
+
+  case "July":
+  case "August":
+  case "September":
+    console.log("This is within the third quarter of the business year");
+    break;
+
+  case "October":
+  case "November":
+  case "December":
+    console.log("This is within the fourth quarter of the business year");
+    break;
+
+  default:
+    console.log("Invalid month");
+    break;
+}
+
+// [a, b, c]
+// (2 + 2) / 4
+// {}
