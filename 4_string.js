@@ -1,7 +1,7 @@
 // STRING INTERPOLATION AND CONCATENATION
 const first_name = "John"
-const middle_name = "Jardani"
-const last_name = "Wick"
+const middle_name = 'Jardani'
+const last_name = `Wick`
 
 // concatenation
 
