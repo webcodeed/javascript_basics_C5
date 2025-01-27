@@ -18,6 +18,13 @@ while (count < 5) {
   count = count + 1;
 }
 
+let multiplier = 1;
+
+while (multiplier <= 12) {
+  console.log(`4 x ${multiplier} = ${4 * multiplier}`);
+  multiplier += 1;
+}
+
 // Examples
 // 1. A program that logs every number from 1 to 200
 let num = 1;
@@ -28,10 +35,39 @@ while (num <= 200) {
 }
 
 // Create a program that keeps asking (prompt) the user for a password until they enter the correct one.
+/*
+1. Stop the program if the user inputs wrong password 3 times
+2. If the user inputs correct password, alert them
+*/
 
-const correct_pssword = "test123";
+const correct_password = "test123";
+let input = prompt("Input your password");
+let user_attempt = 0;
 
-while (condition) {}
+while (input !== correct_password) {
+  user_attempt += 1;
+  if (user_attempt === 3) {
+    alert("Try again after 3 minutes");
+    break;
+  }
+  input = prompt("Wrong password, Input correct password");
+}
+
+if (input === correct_password) {
+  alert("Correct pasword!!");
+}
+
+// FOR LOOPS
+// For loop — The for loop is used to repeat a block of code a certain number of times.
+/*
+for (initial value; condition; increment/decrement) {
+  // Code to be executed in each iteration
+}
+*/
+
+for (let i = 1; i <= 12; i++) {
+  console.log(`6 x ${i} = ${6 * i}`);
+}
 
 /*
 Class exercise - Rub minds together
@@ -42,6 +78,14 @@ Class exercise - Rub minds together
   - Logs the result.
   Example: if the user input 8, The sum numbers between 1 and 8 = 36.
 
+  let input = +prompt("Input a number")
+  let sum = 0
+
+  for(let i = 1; i <= input; i++){
+      sum += i
+  }
+  console.log(sum)
+
 2. Analyse the following broken code and fix it so it does not run infinitely:
   let counter = 20;
 
@@ -50,10 +94,23 @@ Class exercise - Rub minds together
   }
   Tip: use external code editor like https://www.jsplayground.dev/ so that you can easily break the loop.
 
+  let counter = 20;
+
+  while (counter > 0) {
+    console.log(`Number: ${counter}`);
+    counter -= 1 // counter = counter - 1
+  }
+
 3. Reverse Numbers
   Write a program that:
   Prompts the user for a number, W.
   Uses a for loop to log all numbers from W down to 1 in reverse order.
+
+  let input = prompt("Input a number")
+
+  for (let i = input; i > 0; i--){
+    console.log(i)
+  }
 
 4. Range Even Numbers
   Write a program that:
