@@ -140,6 +140,18 @@ const converter = (word) => {
 
 frenchNumbers.forEach(converter);
 
+const names = ["Kola", "John", "Tom", "Ellen"];
+
+function logger(item) {
+  console.log("The name: " + item);
+}
+
+for (let i = 0; i < names.length; i++) {
+  logger(names[i]);
+}
+
+names.forEach(logger);
+
 // 9. map(): Creates a new array with the results of calling a provided function on every element.
 
 const frenchUpper = frenchNumbers.map(function (word) {
@@ -153,3 +165,25 @@ const evenNumbers = [2, 4, 6, 8, 10];
 const evenNumbersSquare = evenNumbers.map((value) => value ** 2);
 
 console.log(evenNumbersSquare);
+
+const nums = [1, 2, 3, 4];
+let squared = [];
+
+for (let i = 0; i < nums.length; i++) {
+  const item = nums[i];
+  const item_square = item ** 2;
+
+  squared.push(item_square);
+}
+
+console.log(squared);
+
+function square_fn(item) {
+  return item ** 2;
+}
+
+const squared_nums = nums.map(function (item) {
+  return item ** 2;
+});
+
+console.log(squared_nums);
