@@ -40,6 +40,63 @@ while (num <= 200) {
 2. If the user inputs correct password, alert them
 */
 
+// 1. Create a program that prompts the user for a number, Y, and then logs all odd numbers from 1 to Y using a for loop.
+
+/*
+let y = +prompt("Input a number");
+let i = 1
+while(i > y ) {
+  if (i % 2 === 0){
+    console.log( i )
+    
+//     break;
+  }
+   i += 1
+}
+*/
+
+// 2. Write a program that prompts the user for a number, Z, and then uses a while loop to log all multiples of 3 from 1 to Z.
+
+/*
+let z = +prompt("Input a number");
+let i = 1
+while(i < z){
+  console.log( i * 3);
+  i++
+}
+*/
+
+// 3. Create a program that prompts the user for a number, N, and then uses a for loop to calculate the factorial of N and logs the result.
+
+/*
+let z = +prompt("Input a number");
+let tot = 0
+let i = 1
+
+while (i < z){
+  tot += i
+  i++
+}
+console.log(tot);
+*/
+
+// 4. Write a program that prompts the user for a number, M, and then uses a while loop to log all prime numbers from 1 to M.
+
+
+let m = +prompt("Input a number");
+let i = 1
+while (i < z){
+  if (i % 2 === 1 && i % 3 === 1)
+  {
+    console.log(i);
+  
+  }
+  i++
+}
+
+
+
+// 5. Create a program that prompts the user for two numbers: start and end. Use a for loop to log all numbers between start and end that are divisible by 4.
 const correct_password = "test123";
 let input = prompt("Input your password");
 let user_attempt = 0;
@@ -56,6 +113,7 @@ while (input !== correct_password) {
 if (input === correct_password) {
   alert("Correct pasword!!");
 }
+
 
 // FOR LOOPS
 // For loop — The for loop is used to repeat a block of code a certain number of times.
