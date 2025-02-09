@@ -27,6 +27,12 @@ function titleCase(sentence) {
 
 function sumOfDigits(num) {
   // Your code here
+  const stringsnum = num.toString()
+  const splitnum = stringsnum.split("")
+  console.log(splitnum);
+const numb = splitnum.map(Number);
+  const tot = numb.reduce((acc, num) => acc + num, 0);
+  return tot;
 }
 
 // Objective: Write a function that takes a sentence (string) as input
@@ -34,8 +40,19 @@ function sumOfDigits(num) {
 // Example: longestWord("Web development is fun") should return "development".
 
 function longestWord(sentence) {
-  // Your code here
-}
+    // Your code here
+    let arr = sentence.split(" ");
+    if (arr.length === 0) return null; // Handle empty array case
+    let longWord = arr[0];
+  console.log(longWord);
+    for (let i = 1; i < arr.length; i++){
+      if (arr[i].length > longWord.length){
+        longWord = arr[i];
+      }
+    }
+  
+    return longWord;
+  }
 
 // Objective: Write a function that takes a string and a letter as input,
 // and returns how many times the letter appears in the string.
@@ -43,6 +60,10 @@ function longestWord(sentence) {
 
 function countLetter(str, letter) {
   // Your code here
+  let M = letter
+  const string = str.split(M);
+  const am = string.length - 1
+    return am;
 }
 
 // Objective: Write a function that takes a number as input
@@ -52,6 +73,12 @@ function countLetter(str, letter) {
 
 function factorial(num) {
   // Your code here
+let total = 1
+
+for (let i = 1; i <= num; i++ ){
+  total *= i
+}
+  return total;
 }
 
 // Objective: Write a function that takes a sentence (string) as input
@@ -60,6 +87,9 @@ function factorial(num) {
 
 function countWords(sentence) {
   // Your code here
+  let old = sentence.split(' ')
+  const newer = old.length
+  return newer;
 }
 
 // Objective: Write a function that takes two numbers (min and max) as input
@@ -68,6 +98,8 @@ function countWords(sentence) {
 
 function randomInRange(min, max) {
   // Your code here
+  const the = Math.random() * (max - min) +  min;
+  return the;
 }
 
 // Objective: Write a function that takes an array of numbers as input
@@ -76,6 +108,9 @@ function randomInRange(min, max) {
 
 function findMin(arr) {
   // Your code here
+  const me = Math.min(...arr);
+  console.log(me);
+return me;
 }
 
 //
