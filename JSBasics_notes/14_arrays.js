@@ -187,3 +187,16 @@ const squared_nums = nums.map(function (item) {
 });
 
 console.log(squared_nums);
+
+// FOR...OF
+const arr = [2, 4, 6, 8, 10]
+
+// arr.length = 5
+// i = 5
+for (let i = 0; i < arr.length;i++){
+  console.log(`2 x ${arr[i]} = ${2 * arr[i]}`)
+}
+
+for (const el of arr){
+  console.log(`3 x ${el} = ${3 * el}`)
+}
