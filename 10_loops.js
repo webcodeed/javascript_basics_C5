@@ -34,11 +34,6 @@ while (num <= 200) {
   num = num + 1;
 }
 
-// Create a program that keeps asking (prompt) the user for a password until they enter the correct one.
-/*
-1. Stop the program if the user inputs wrong password 3 times
-2. If the user inputs correct password, alert them
-*/
 
 // 1. Create a program that prompts the user for a number, Y, and then logs all odd numbers from 1 to Y using a for loop.
 
@@ -49,9 +44,9 @@ while(i > y ) {
   if (i % 2 === 0){
     console.log( i )
     
-//     break;
+    //     break;
   }
-   i += 1
+  i += 1
 }
 */
 
@@ -82,21 +77,44 @@ console.log(tot);
 
 // 4. Write a program that prompts the user for a number, M, and then uses a while loop to log all prime numbers from 1 to M.
 
+// let m = +prompt("Input a number");
+// let num = 2;
 
-let m = +prompt("Input a number");
-let i = 1
-while (i < z){
-  if (i % 2 === 1 && i % 3 === 1)
-  {
-    console.log(i);
+// while (num <= m) {
+//   let isPrime = true;
+//   for (let i = 2; i <= Math.sqrt(num); i++) {
+//     if (num % i === 0) {
+//       isPrime = false;
+//       break;
+//     }
+//   }
+//   if (isPrime) {
+//     console.log(num);
+//   }
+//   num++;
+// }
+
   
-  }
-  i++
-}
-
-
-
-// 5. Create a program that prompts the user for two numbers: start and end. Use a for loop to log all numbers between start and end that are divisible by 4.
+  
+  
+  // 5. Create a program that prompts the user for two numbers: start and end. Use a for loop to log all numbers between start and end that are divisible by 4.
+  
+  // let num1 =  +prompt("Input a low number");
+  // let num2 =  +prompt("Input a high number");
+  
+  // while (num1 < num2) {
+  //   if(num1 % 4 === 0){
+  //     console.log(num1);
+  //   }
+  //   num1 += 1
+  // }
+  
+  
+  // Create a program that keeps asking (prompt) the user for a password until they enter the correct one.
+  /*
+  1. Stop the program if the user inputs wrong password 3 times
+  2. If the user inputs correct password, alert them
+  */
 const correct_password = "test123";
 let input = prompt("Input your password");
 let user_attempt = 0;
@@ -123,9 +141,9 @@ for (initial value; condition; increment/decrement) {
 }
 */
 
-for (let i = 1; i <= 12; i++) {
-  console.log(`6 x ${i} = ${6 * i}`);
-}
+// for (let i = 1; i <= 12; i++) {
+//   console.log(`6 x ${i} = ${6 * i}`);
+// }
 
 /*
 Class exercise - Rub minds together
@@ -176,6 +194,16 @@ Class exercise - Rub minds together
   Prompts the user for two numbers: start and end.
   Uses a while loop to log all even numbers between start and end.
 
+  let input1 = prompt("Input a low number")
+  let input2 = prompt("Input a high number")
+
+  for(let i = input1; i <= input2; i++){
+  if(i % 2 === 0) {
+  console.log(i);
+  }
+  }
+
+
 5. FizzBuzz
   Write a program that:
 
@@ -185,4 +213,20 @@ Class exercise - Rub minds together
   "Buzz" for numbers divisible by 5.
   "FizzBuzz" for numbers divisible by both 3 and 5.
   The number itself for all other cases.
+  
+  
+  for (let i = 1; i < 100; i++) {
+    if(i % 3 === 0 && i % 5 === 0){
+      console.log('fizzbuzz');
+    }
+    else if (i % 3 === 0){
+      console.log('fizz');
+    }
+    else if(i % 5 === 0){
+      console.log('buzz');
+    }
+    else{
+      break;
+  }
+}
 */
