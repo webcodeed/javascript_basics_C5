@@ -2,13 +2,13 @@ document.querySelector("form").addEventListener("submit", addTask);
 
 function addTask(event) {
   event.preventDefault();
-  let taskInput = document.getElementById("taskInput");
+  let taskInput = document.querySelector("#taskInput");
   let taskText = taskInput.value.trim();
   if (taskText === "") return;
 
   let li = document.createElement("li");
-  li.innerHTML = `${taskText} <button class="edit" onclick="editTask(this)">Edit</button> <button class="delete" onclick="deleteTask(this)">Delete</button>`;
-  document.getElementById("taskList").appendChild(li);
+  li.innerHTML = `<span>${taskText}</span> <div><button class="edit">Edit</button> <button class="delete">Delete</button></div>`;
+  document.querySelector("#taskList").appendChild(li);
   taskInput.value = "";
 }
 
@@ -25,3 +25,12 @@ function editTask(button) {
 function deleteTask(button) {
   button.parentElement.remove();
 }
+
+document.querySelector("#taskList").addEventListener("click", (e) => {
+  const el = e.target;
+  if (el.classList.contains("edit")) {
+    editTask(el);
+  } else if (el.classList.contains("delete")) {
+    deleteTask(el);
+  }
+});
