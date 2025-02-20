@@ -81,6 +81,7 @@ for (let i = 1; i <= num; i++ ){
   return total;
 }
 
+
 // Objective: Write a function that takes a sentence (string) as input
 // and returns the number of words in the sentence.
 // Example: countWords("JavaScript is fun") should return 3.

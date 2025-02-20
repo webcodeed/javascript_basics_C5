@@ -78,6 +78,39 @@ function currencyFormatter(num, currency = "₦") {
 console.log(currencyFormatter(100)); // ₦ 100
 console.log(currencyFormatter(25000, "GH₵")); // GH₵ 25,000
 console.log(currencyFormatter(1000000, "£")); // £ 1,000,000
+/*
+📌 Test Question
+Write a function called formatNumber that takes two parameters:
+
+num → A number to format.
+separator → A string that will be used to separate every three digits (default is a comma ,).
+Your function should format the number by inserting the separator every three digits from the right.
+*/
+
+/*
+function formatNumber(num, separator = ",") {
+  let numstr = String(num);
+
+  let end = numstr.length
+  let start = numstr.length - 3
+  let sum = ""
+  
+  if (end <= 3) return num
+  
+  while(end){
+    sum = `${separator}${numstr.slice(start, end)}` + sum
+    console.log(sum)
+    end = start
+    start -= 3
+    
+    if(start <= 0){
+      let h = numstr.slice(0, end) + sum
+      return h
+    }
+  }
+}
+console.log(formatNumber(30000, "."))
+*/
 
 // () => {}
 
