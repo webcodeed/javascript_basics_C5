@@ -1,0 +1,85 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+nav {
+  background-color: rgb(180, 31, 31);
+  color: white;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin: 0;
+}
+
+.nav-list > select {
+  width: 40%;
+  height: 40px;
+  border-radius: 20px;
+
+  background-color: #fff;
+  color: #2b0705;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.nav-list > button {
+  background-color: #fff;
+  color: #2b0705;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transform: scale(0.95);
+  font-size: 20px;
+
+  transition: all 0.3s;
+}
+
+.nav-list > button:hover {
+  background-color: #f1f1f1;
+}
+
+.nav-list > button:active {
+  transform: scale(0.85);
+}
+
+.main-image {
+  display: none;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.loading-dog {
+  animation: spin 1s infinite linear;
+  font-size: 50px;
+  display: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  overflow: hidden;
+}
+
+.show {
+  display: block;
+}
