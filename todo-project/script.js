@@ -20,7 +20,6 @@ form.addEventListener("submit", function (e) {
 
   // Creates a new list item (li) element
   const li = document.createElement("li");
-
   // Set the inner HTML of the list item with the task text and action buttons
   li.innerHTML += `
   <span>${taskText}</span>
