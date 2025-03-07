@@ -343,3 +343,10 @@ deleteBtn.addEventListener("click", (e) => {
 ```
 
 This event listener listens for a click event on the delete button. When the delete button is clicked, it extracts the item type and id from the data attribute of the button. It then filters the items array to remove the item with the matching id. The budget values and percentage values are updated, and the item is removed from the DOM.
+
+## Improvements
+
+1. Add a feature to edit an item.
+2. Add a feature to store the budget data in local storage.
+3. Add a feature to reset the budget data.
+4. Add responsive design to the application.
