@@ -43,18 +43,6 @@ inputTypeEl.addEventListener("change", () => {
 });
 
 // Stores all the budget data
-/**
- * An object representing the financial data for the budget application.
- * @typedef {Object} Data
- * @property {Object} items - An object containing lists of expenses and income.
- * @property {Array} items.expenses - List of each expense.
- * @property {Array} items.income - List of each income.
- * @property {Object} totals - An object containing the total amounts for expenses and income.
- * @property {number} totals.expenses - Total amount of expenses.
- * @property {number} totals.income - Total amount of income.
- * @property {number} budget - The current budget value.
- * @property {number} percent - The percentage of income that has been spent. Default is -1.
- */
 const data = {
   items: {
     expenses: [],
@@ -187,7 +175,6 @@ function updateBudgetValues() {
   } else {
     percent.textContent = "---";
   }
-  console.log(data);
 }
 
 function updatePercentValues() {
