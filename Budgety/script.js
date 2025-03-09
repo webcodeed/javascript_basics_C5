@@ -43,18 +43,6 @@ inputTypeEl.addEventListener("change", () => {
 });
 
 // Stores all the budget data
-/**
- * An object representing the financial data for the budget application.
- * @typedef {Object} Data
- * @property {Object} items - An object containing lists of expenses and income.
- * @property {Array} items.expenses - List of each expense.
- * @property {Array} items.income - List of each income.
- * @property {Object} totals - An object containing the total amounts for expenses and income.
- * @property {number} totals.expenses - Total amount of expenses.
- * @property {number} totals.income - Total amount of income.
- * @property {number} budget - The current budget value.
- * @property {number} percent - The percentage of income that has been spent. Default is -1.
- */
 const data = {
   items: {
     expenses: [],
@@ -73,7 +61,7 @@ function getInputs() {
   return {
     type: inputTypeEl.value,
     desc: inputDescriptionEl.value,
-    value: inputValueEl.value,
+    amount: Number(inputValueEl.value),
   };
 }
 
@@ -84,42 +72,47 @@ formEl.addEventListener("submit", (e) => {
 
   // const type = formValues.type
   // const description = formValues.desc
-  // const value = formValues.value
+  // const amount = formValues.amount
 
   // Object Destructuring
-  const { type, desc: description, value } = formValues;
+  const { type, desc: description, amount } = formValues;
 
-  if (type && description && value) {
+  if (type && description && amount) {
     // Generate a radom unique ID
     let id = crypto.randomUUID();
 
-    // Push the id, description & value into appropriate data.items array i.e income or expenses
-    // data.items[type].push({ id, description, value });
+    // Push the id, description & amount into appropriate data.items array i.e income or expenses
+    // data.items[type].push({ id, description, amount });
 
     if (type == "income") {
-      data.items.income.push({ id, description, value });
+      data.items.income.push({ id, description, amount });
     } else {
-      data.items.expenses.push({ id, description, value });
+      data.items.expenses.push({ id, description, amount });
     }
-    console.log(data);
 
     // Clear form fields
     inputDescriptionEl.value = "";
     inputValueEl.value = "";
 
     // Update UI
-    addNewItem(id, type, description, value);
+    addNewItem(id, type, description, amount);
+
+    // UPDATE BUDGET
+    updateBudgetValues();
+
+    //  Update percentage values
+    updatePercentValues();
   } else {
     alert("Please input valid description and amount");
   }
 });
 
-function addNewItem(id, type, desc, value) {
+function addNewItem(id, type, desc, amount) {
   const html = `
     <div class="item" id="${id}">
     <div class="item__description">${desc}</div>
     <div class="item__values-container">
-      <div class="item__value" data-value="${value}">${value}</div>
+      <div class="item__value" data-value="${amount}">${amount}</div>
       ${type === "expenses" ? `<div class="item__percentage">0%</div>` : ""}
       <div class="item__delete">
         <button class="item__delete--btn">
@@ -134,3 +127,96 @@ function addNewItem(id, type, desc, value) {
   // Insert into the DOM
   document.querySelector(`.${type}__list`).innerHTML += html;
 }
+
+function calaculateTotal(type) {
+  let sum = 0;
+  data.items[type].forEach((item) => (sum += item.amount));
+  data.totals[type] = sum;
+}
+
+const formatNumber = (num) => {
+  return num.toLocaleString(undefined, {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+};
+
+function updateBudgetValues() {
+  // Calculate total income and expenses
+  // Income total
+  calaculateTotal("income");
+  // Expense total
+  calaculateTotal("expenses");
+  // Budget Total
+  data.budget = data.totals.income - data.totals.expenses;
+
+  // Calculate the percentage of income spent
+  if (data.totals.income > 0) {
+    data.percent = Math.round(
+      (data.totals.expenses / data.totals.income) * 100,
+    );
+  } else {
+    data.percent = -1;
+  }
+
+  // Display the budget in the UI
+  document.querySelector(".budget__value").textContent = formatNumber(
+    data.budget,
+  );
+  document.querySelector(".budget__income--value").textContent = formatNumber(
+    data.totals.income,
+  );
+  document.querySelector(".budget__expenses--value").textContent = formatNumber(
+    data.totals.expenses,
+  );
+  const percent = document.querySelector(".budget__expenses--percentage");
+  if (data.percent >= 0) {
+    percent.textContent = data.percent + "%";
+  } else {
+    percent.textContent = "---";
+  }
+}
+
+function updatePercentValues() {
+  const listItems = document.querySelectorAll(".expenses__list > div");
+  listItems.forEach(function (el) {
+    const expense = el.querySelector(".item__value");
+    const percent = el.querySelector(".item__percentage");
+
+    if (data.totals.income > 0) {
+      percent.textContent =
+        Math.round((Number(expense.textContent) / data.totals.income) * 100) +
+        "%";
+    } else {
+      percent.textContent = "---";
+    }
+  });
+}
+
+const deleteBtn = document.querySelector(".container");
+
+deleteBtn.addEventListener("click", (e) => {
+  if (e.target.id !== "delete--btn") {
+    return;
+  }
+
+  const item = e.target.getAttribute("data-item");
+
+  // const itemSplit = item.split(" ")
+  // const type = itemSplit[0];
+  // const id = itemSplit[1]
+  const [type, id] = item.split(" ");
+
+  const newData = data.items[type].filter((item) => item.id !== id);
+
+  data.items[type] = newData;
+
+  // Update Budget
+  updateBudgetValues();
+
+  // Update Percent
+  updatePercentValues();
+
+  // Remove element from the DOM
+  document.getElementById(id).remove();
+});
